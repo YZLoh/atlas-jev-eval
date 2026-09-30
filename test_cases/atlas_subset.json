@@ -1,0 +1,78 @@
+{
+  "_provenance": {
+    "source": "https://github.com/mitre-atlas/atlas-data/blob/main/dist/ATLAS.yaml",
+    "atlas_version": "5.6.0",
+    "retrieved": "2026-09-30",
+    "note": "Subset covering only the techniques this project maps to. Regenerate with scripts/refresh_atlas.py."
+  },
+  "tactics": {
+    "AML.TA0002": "Reconnaissance",
+    "AML.TA0003": "Resource Development",
+    "AML.TA0004": "Initial Access",
+    "AML.TA0000": "AI Model Access",
+    "AML.TA0005": "Execution",
+    "AML.TA0006": "Persistence",
+    "AML.TA0012": "Privilege Escalation",
+    "AML.TA0007": "Defense Evasion",
+    "AML.TA0013": "Credential Access",
+    "AML.TA0008": "Discovery",
+    "AML.TA0015": "Lateral Movement",
+    "AML.TA0009": "Collection",
+    "AML.TA0001": "AI Attack Staging",
+    "AML.TA0014": "Command and Control",
+    "AML.TA0010": "Exfiltration",
+    "AML.TA0011": "Impact"
+  },
+  "techniques": {
+    "AML.T0051": {
+      "name": "LLM Prompt Injection",
+      "tactics": [
+        "AML.TA0005"
+      ],
+      "description": "An adversary may craft malicious prompts as inputs to an LLM that cause the LLM to act in unintended ways. These \"prompt injections\" are often designed to cause the model to ignore aspects of its original instructions and follow the adversary's instructions instead. Prompt Injections can be an initial access vector to the LLM that provides the adversary with a foothold to carry out other steps in "
+    },
+    "AML.T0054": {
+      "name": "LLM Jailbreak",
+      "tactics": [
+        "AML.TA0012",
+        "AML.TA0007"
+      ],
+      "description": "Adversaries may induce a large language model (LLM) to ignore, circumvent, or override its safety/alignment behaviors and/or guardrails to elicit outputs the model is intended to withhold. Once jailbroken, the LLM may be used in unintended ways by the adversary. Jailbreaks may be achieved via adversarial prompting, or by modifying model weights or safety mechanisms. Adversaries may attempt a jailb"
+    },
+    "AML.T0056": {
+      "name": "Extract LLM System Prompt",
+      "tactics": [
+        "AML.TA0010"
+      ],
+      "description": "Adversaries may attempt to extract a large language model's (LLM) system prompt. This can be done via prompt injection to induce the model to reveal its own system prompt or may be extracted from a configuration file. System prompts can be a portion of an AI provider's competitive advantage and are thus valuable intellectual property that may be targeted by adversaries."
+    },
+    "AML.T0057": {
+      "name": "LLM Data Leakage",
+      "tactics": [
+        "AML.TA0010"
+      ],
+      "description": "Adversaries may craft prompts that induce the LLM to leak sensitive information. This can include private user data or proprietary information. The leaked information may come from proprietary training data, data sources the LLM is connected to, or information from other users of the LLM."
+    },
+    "AML.T0068": {
+      "name": "LLM Prompt Obfuscation",
+      "tactics": [
+        "AML.TA0007"
+      ],
+      "description": "Adversaries may hide or otherwise obfuscate prompt injections or retrieval content to avoid detection from humans, large language model (LLM) guardrails, or other detection mechanisms. For text inputs, this may include modifying how the instructions are rendered such as small text, text colored the same as the background, or hidden HTML elements. For multi-modal inputs, malicious instructions coul"
+    },
+    "AML.T0069": {
+      "name": "Discover LLM System Information",
+      "tactics": [
+        "AML.TA0008"
+      ],
+      "description": "The adversary is trying to discover something about the large language model's (LLM) system information. This may be found in a configuration file containing the system instructions or extracted via interactions with the LLM. The desired information may include the full system prompt, special characters that have significance to the LLM or keywords indicating functionality available to the LLM. In"
+    },
+    "AML.T0086": {
+      "name": "Exfiltration via AI Agent Tool Invocation",
+      "tactics": [
+        "AML.TA0010"
+      ],
+      "description": "AI agent tools capable of performing write operations may be invoked to exfiltrate data to an adversary. Sensitive information can be encoded into the tool's input parameters and transmitted to an adversary-controlled location (such as an inbox, document, or server) as part of a seemingly legitimate action. Variants include sending emails, creating or modifying documents, updating CRM records, or "
+    }
+  }
+}

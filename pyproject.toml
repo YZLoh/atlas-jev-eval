@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas-jev-eval"
+version = "0.1.0"
+description = "ATLAS-driven adversarial evaluation of open LLMs, using TypeSafe Jev as a structured evaluator"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+dependencies = [
+    "typesafe-sdk>=0.7.2",
+    "requests>=2.31",
+    "pyyaml>=6.0",
+    "pydantic>=2.6",
+    "python-dotenv>=0.21",
+    "pandas>=2.0",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dashboard = ["streamlit>=1.30"]
+dev = ["pytest>=7.4", "ruff>=0.4"]
+
+[project.scripts]
+atlas-jev = "atlas_jev.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["atlas_jev*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
